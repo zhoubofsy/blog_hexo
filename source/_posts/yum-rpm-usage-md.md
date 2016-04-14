@@ -22,9 +22,16 @@ yum search {关键字s}
 yum install --downloadonly {需要下载的软件名，可多个} --downloaddir={下载位置，目录名}
 ```
 
+### 按依赖关系安装本地rpm包
+```shell
+yum localinstall *.rpm
+```
+
 
 ## rpm
 ---
+* 每个rpm包上记录着它所依赖的rpm包
+
 ### 安装
 ```shell
 rpm -ivh {xxx.rpm}
@@ -39,6 +46,11 @@ rpm -e --nodeps {软件名称}
 ### 解压
 ```shell
 rpm2cpio {xxx.rpm} | cpio -div
+```
+
+### 查看包依赖关系
+```shell
+rpm -qpR {软件名称}
 ```
 
 

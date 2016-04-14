@@ -98,6 +98,13 @@ yum install --downloadonly snappy leveldb gdisk python-argparse gperftools-libs 
 ```
 详细见[《yum和rpm使用方法》](http://zhoubofsy.github.io/2016/04/13/yum-rpm-usage-md/)
 
+#### 安装已下载的rpm包
+
+进入rpm包所在目录
+```shell
+yum localinstall *.rpm
+```
+
 ## 参考&鸣谢
 ---
 * [redhat7.2配置yum源](http://blog.csdn.net/wylfengyujiancheng/article/details/50418930)
