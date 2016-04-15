@@ -51,11 +51,13 @@ yum localinstall *.rpm
     ```shell
     sudo yum localinstall *.rpm
     ```
-    4. 按官网配置方式配置ceph集群（**确保“/var/lib/ceph/”目录下的owner为ceph用户**）
-    详细请见：http://docs.ceph.com/docs/infernalis/install/manual-deployment/
 #### SSH无密码访问
 * 各个物理节点之间，建立SSH无密码访问
 
+#### 集群搭建
+    1. 按官网配置方式配置ceph集群（**确保“/var/lib/ceph/”目录下的owner为ceph用户**）
+    详细请见：http://docs.ceph.com/docs/infernalis/install/manual-deployment/
+    2. 如果集群名称不是默认名称（默认名称为：ceph），需要修改/etc/sysconfig/ceph，增加 CLUSTER="新集群名称"(详细请见，参考5)
 
 
 至此基本ceph集群已搭建完成
@@ -66,5 +68,8 @@ yum localinstall *.rpm
 Todo...
 
 # 参考&鸣谢
-* [打造高性能高可靠块存储系统](https://www.ustack.com/blog/build-block-storage-service/)
-
+1. [打造高性能高可靠块存储系统](https://www.ustack.com/blog/build-block-storage-service/)
+2. [Can't start ceph service](http://stackoverflow.com/questions/32397704/cant-start-ceph-service)
+3. [linux命令详解之useradd命令使用方法](http://www.jb51.net/article/45848.htm)
+4. [systemd:how do I view journals with journalctl without switching to root on CentOS7?](http://serverfault.com/questions/681632/systemd-how-do-i-view-journals-with-journalctl-without-switching-to-root-on-cen)
+5. [Mail Re:Ceph on Fedora](http://permalink.gmane.org/gmane.comp.file-systems.ceph.devel/19988)
