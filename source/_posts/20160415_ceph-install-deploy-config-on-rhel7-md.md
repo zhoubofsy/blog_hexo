@@ -28,6 +28,7 @@ yum localinstall *.rpm
 ### OSD节点
 * 一个硬盘对应一个OSD
 * OSD节点使用万兆网络
+* 数据与日志分开，日志存放在SSD硬盘中
 
 ## 方法
 
@@ -55,9 +56,18 @@ yum localinstall *.rpm
 * 各个物理节点之间，建立SSH无密码访问
 
 #### 集群搭建
-    1. 按官网配置方式配置ceph集群（**确保“/var/lib/ceph/”目录下的owner为ceph用户**）
-    详细请见：http://docs.ceph.com/docs/infernalis/install/manual-deployment/
-    2. 如果集群名称不是默认名称（默认名称为：ceph），需要修改/etc/sysconfig/ceph，增加 CLUSTER="新集群名称"(详细请见，参考5)
+* 按官网配置方式配置ceph集群（确保“/var/lib/ceph/”目录下的owner为ceph用户）
+详细请见：http://docs.ceph.com/docs/infernalis/install/manual-deployment/
+在搭建OSD时，不建议使用short form，建议使用long form；
+* 如果集群名称不是默认名称（默认名称为：ceph），需要修改/etc/sysconfig/ceph，增加 CLUSTER="新集群名称"(详细请见，参考5)
+* 根据集群情况结合本机需要启动的服务，在“/etc/sysconfig/ceph”中增加 MON_ID="MON的ID" 或 OSD_ID="OSD的ID"(详细请见，参考5)
+* 修改/etc/fstab，增加需要挂载的磁盘信息
+* 修改systemd中ceph服务为enable，保证开机启动
+```shell
+systemctl enable ceph-mon@{MON ID}
+systemctl enable ceph-osd@{OSD ID}
+```
+大括号中的内容需要根据实际情况填写。
 
 
 至此基本ceph集群已搭建完成
