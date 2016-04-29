@@ -38,7 +38,7 @@ yum localinstall *.rpm
     ```shell
     useradd -Um -d /home/ceph ceph
     passwd ceph
-    echo "ceph  ALL=(ALL)   ALL" >> /etc/sudoer
+    echo "ceph  ALL=(ALL)   ALL" >> /etc/sudoers
     su - ceph
     ```
     1. 创建ceph用户和ceph用户目录
