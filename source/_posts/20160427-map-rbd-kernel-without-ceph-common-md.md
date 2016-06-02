@@ -9,6 +9,7 @@ tags: ceph
 ```shell
 modprobe rbd
 echo "192.168.1.234 name=admin,secret=AQAHzRBX77ORERAAqfW0YAqq8+ETXMqWtPKwkQ== rbd testrbd" > /sys/bus/rbd/add
+echo 1 > /sys/bus/rbd/remove
 ```
 
 ## 解释
@@ -18,6 +19,7 @@ echo "192.168.1.234 name=admin,secret=AQAHzRBX77ORERAAqfW0YAqq8+ETXMqWtPKwkQ== r
 * secret，name制定用户所对应的 key 值
 * rbd，制定需要映射的块设备（该快设备必须是已经创建好的）
 * 使用客户端内核必须支持rbd.ko这个内核模块
+* 1, 设备ID，用于去映射
 
 
 ## 参考&鸣谢

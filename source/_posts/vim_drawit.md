@@ -4,21 +4,12 @@ tags: vim
 ---
 
 # 下载
-```bash
-wget -O DrawIt.vba.gz http://www.vim.org/scripts/download_script.php?scr_id=8798
-```
-
-# 解压
-```bash
-vim DrawIt.vba.gz
-```
-```vim
-:so %
-:q
+```shell
+git clone git@github.com:zhoubofsy/DrawIt.git
 ```
 
 # 安装
-将解压后的文件复制到~/.vim/的plug和doc目录下
+将解压后的"autoload","doc","plugin"文件复制到~/.vim目录下
 
 # 使用
 
@@ -49,4 +40,4 @@ PgDn 右下斜线
 End　左下斜线
 Home 左上斜线
 
-注：　“\” 为 <leader>
+注：　“\” 为 vim 中的 leader
